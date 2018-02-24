@@ -1,5 +1,6 @@
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/grid/columns";
+@import "../node_modules/bulma/bulma";
 @import url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900');
 
 .App {
@@ -44,7 +45,7 @@
   background-size: cover;
 }
 
-$foods: banana, bread, jelly, apple, bacon, cupcake, butter, carrot, turkey, coffee, pepper, rice, hot-dog, hamburger, kebab;
+$foods: banana, bread, jelly, apple, bacon, cupcake, butter, carrot, turkey, coffee, pepper, rice, hot-dog, hamburguer, kebab;
 
 @each $food in $foods {
   .food-icon--#{$food}:before {
