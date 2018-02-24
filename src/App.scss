@@ -1,7 +1,16 @@
-@import "../node_modules/bulma/sass/utilities/_all";
-@import "../node_modules/bulma/sass/grid/columns";
-@import "../node_modules/bulma/bulma";
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 @import url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900');
+// Bulma overrides
+$light-blue: #c1e0f5;
+$primary: $light-blue;
+$light: #F9FAFB;
+$family-sans-serif: 'Catamaran', sans-serif;
+$family-primary: $family-sans-serif;
+$text: #888;
+
+// Import remaining Bulma styles
+@import "../node_modules/bulma/bulma";
 
 .App {
   //text-align: center;
@@ -73,22 +82,16 @@ h2, h3 {
 body {
   margin: 2em;
 }
-body, input[text], button {
-  color: #888;
-  font-family: Cambria, Georgia;
-}
-a {
-  cursor: pointer;
-  cursor: hand;
-}
+//body, input[text], button {
+//  color: #888;
+//  font-family: Cambria, Georgia, serif;
+//}
 button {
-  font-family: Arial;
   background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  cursor: hand;
 }
 button:hover {
   background-color: #cfd8dc;
@@ -197,11 +200,6 @@ nav a.router-link-active {
   border-radius: 4px 0 0 4px;
 }
 
-/* everywhere else */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 
 
 
@@ -219,10 +217,6 @@ body, html, h1, h2, h3, h4, h5, h6 {
 body, html {
   height: 100%;
   min-height: 100%;
-}
-
-* {
-  font-family: 'Catamaran', sans-serif;
 }
 
 [class*="col-jm"] {
@@ -319,14 +313,12 @@ body, html {
   text-align: center;*/
 }
 h1 {
-  font-family: 'Catamaran', sans-serif;
   font-weight: 900;
 }
 h6 {
   margin: 0;
   color: #369;
   font-size: 18px;
-  font-family: 'Catamaran', sans-serif;
   font-weight: 700;
 }
 .site-nav {
