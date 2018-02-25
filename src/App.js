@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import cupcake from './img/food/cupcake.svg'
-import carrot from './img/food/carrot.svg'
-import butter from './img/food/butter.svg'
-import jelly from './img/food/jelly.svg'
-import apple from './img/food/apple.svg'
-import bacon from './img/food/bacon.svg'
-import banana from './img/food/banana.svg'
-import hamburger from './img/food/hamburguer-1.svg'
 import FoodItem from './components/FoodItem'
 import NutrientTable from './components/NutrientTable'
+import FoodItems from './components/FoodItems'
 
 class App extends Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = { userName: 'Jamie' };
   }
   render() {
@@ -51,7 +44,7 @@ class NavBar extends Component {
                     <h6 className="title is-6">Cupcake</h6>
                   </div>
                   <div className="food-item__content">
-                    <img className="food-item__image" src={cupcake} alt="Cupcake" width="50" height="50"
+                    <img className="food-item__image" src={FoodItems.cupcake.imgUri} alt="Cupcake" width="50" height="50"
                          draggable="false"/>
                   </div>
                 </div>
@@ -60,7 +53,7 @@ class NavBar extends Component {
                     <h6 className="title is-6">Carrot</h6>
                   </div>
                   <div className="food-item__content">
-                    <img className="food-item__image" src={carrot} alt="Carrot" width="50" height="50"
+                    <img className="food-item__image" src={FoodItems.carrot.imgUri} alt="Carrot" width="50" height="50"
                          draggable="false"/>
                   </div>
                 </div>
@@ -69,7 +62,7 @@ class NavBar extends Component {
                     <h6 className="title is-6">Butter</h6>
                   </div>
                   <div className="food-item__content">
-                    <img className="food-item__image" src={butter} alt="Butter" width="50" height="50"
+                    <img className="food-item__image" src={FoodItems.butter.imgUri} alt="Butter" width="50" height="50"
                          draggable="false"/>
                   </div>
                 </div>
@@ -78,7 +71,7 @@ class NavBar extends Component {
                     <h6 className="title is-6">Jelly</h6>
                   </div>
                   <div className="food-item__content">
-                    <img className="food-item__image" src={jelly} alt="Jelly" width="50" height="50" draggable="false"/>
+                    <img className="food-item__image" src={FoodItems.jelly.imgUri} alt="Jelly" width="50" height="50" draggable="false"/>
                   </div>
                 </div>
               </div>
@@ -92,20 +85,13 @@ class NavBar extends Component {
 
 class FeaturedFoods extends Component {
   render() {
-    return [
-      <div className="column" key="Carrot">
-        <FoodItem name="Carrot" theme={this.props.theme} imgUri={carrot} />
-      </div>,
-      <div className="column" key="Apple">
-        <FoodItem name="Apple" theme={this.props.theme} imgUri={apple} />
-      </div>,
-      <div className="column" key="Bacon">
-        <FoodItem name="Bacon" theme={this.props.theme} imgUri={bacon} />
-      </div>,
-      <div className="column" key="Banana">
-        <FoodItem name="Banana" theme={this.props.theme} imgUri={banana} />
-      </div>
-    ]
+    return this.props.foodItems.map(foodItem => {
+      return (
+        <div className="column" key={foodItem.name}>
+          <FoodItem theme={this.props.theme} foodItem={foodItem} />
+        </div>
+      )
+    })
   }
 }
 
@@ -124,19 +110,13 @@ class Header extends Component {
   }
 }
 
-// function SubHeader (props) {
-//   return (
-//
-//   );
-// }
-
 class HomePage extends Component {
   render () {
     return [
       <section className="section" key="foods">
         <div className="container">
           <div className="columns">
-            <FeaturedFoods />
+            <FeaturedFoods foodItems={[FoodItems.hamburger, FoodItems.bacon, FoodItems.banana, FoodItems.hotDog]} />
             <div className="column is-half">
               <ShoppingList />
             </div>
@@ -148,7 +128,7 @@ class HomePage extends Component {
           <div className="columns">
             <div className="column is-half">
               <div className="columns">
-                <FeaturedFoods theme="dark" />
+                <FeaturedFoods theme="dark" foodItems={[FoodItems.hotDog, FoodItems.banana, FoodItems.apple, FoodItems.butter]} />
               </div>
             </div>
           </div>
