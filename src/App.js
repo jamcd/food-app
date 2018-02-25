@@ -7,15 +7,20 @@ import jelly from './img/food/jelly.svg'
 import apple from './img/food/apple.svg'
 import bacon from './img/food/bacon.svg'
 import banana from './img/food/banana.svg'
+import hamburger from './img/food/hamburguer-1.svg'
 import FoodItem from './components/FoodItem'
-
+import NutrientTable from './components/NutrientTable'
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { userName: 'Jamie' };
+  }
   render() {
     return (
       <div className="App">
-        <NavBar />
-        <Header />
+        <NavBar className="main-nav"/>
+        <Header userName={this.state.userName}/>
         <HomePage />
       </div>
     );
@@ -25,7 +30,7 @@ class App extends Component {
 class NavBar extends Component {
   render() {
     return (
-      <section className="navbar" role="navigation">
+      <section className={'navbar ' + this.props.className} role="navigation">
         <div className="container">
           <div className="navbar-brand">
             <a href="/" className="navbar-item">
@@ -34,16 +39,16 @@ class NavBar extends Component {
             </a>
           </div>
           <div className="navbar-menu navbar-end">
-            <div className="site-nav-item">Home</div>
+            <a className="site-nav-item navbar-item">Home</a>
 
-            <div className="site-nav-item">Food</div>
+            <a className="site-nav-item navbar-item">Food</a>
 
-            <div className="site-nav-item">Planner
+            <a className="site-nav-item navbar-item">Planner
 
               <div className="site-nav__submenu">
                 <div className="food-item col-jm-8" draggable="true">
                   <div className="food-item__heading">
-                    <h6>Cupcake</h6>
+                    <h6 className="title is-6">Cupcake</h6>
                   </div>
                   <div className="food-item__content">
                     <img className="food-item__image" src={cupcake} alt="Cupcake" width="50" height="50"
@@ -52,7 +57,7 @@ class NavBar extends Component {
                 </div>
                 <div className="food-item col-jm-8" draggable="true">
                   <div className="food-item__heading">
-                    <h6>Carrot</h6>
+                    <h6 className="title is-6">Carrot</h6>
                   </div>
                   <div className="food-item__content">
                     <img className="food-item__image" src={carrot} alt="Carrot" width="50" height="50"
@@ -61,7 +66,7 @@ class NavBar extends Component {
                 </div>
                 <div className="food-item col-jm-8" draggable="true">
                   <div className="food-item__heading">
-                    <h6>Butter</h6>
+                    <h6 className="title is-6">Butter</h6>
                   </div>
                   <div className="food-item__content">
                     <img className="food-item__image" src={butter} alt="Butter" width="50" height="50"
@@ -70,14 +75,14 @@ class NavBar extends Component {
                 </div>
                 <div className="food-item col-jm-8" draggable="true">
                   <div className="food-item__heading">
-                    <h6>Jelly</h6>
+                    <h6 className="title is-6">Jelly</h6>
                   </div>
                   <div className="food-item__content">
                     <img className="food-item__image" src={jelly} alt="Jelly" width="50" height="50" draggable="false"/>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -88,17 +93,17 @@ class NavBar extends Component {
 class FeaturedFoods extends Component {
   render() {
     return [
-      <div className="column">
-        <FoodItem name="Carrot" imgUri={carrot} />
+      <div className="column" key="Carrot">
+        <FoodItem name="Carrot" theme={this.props.theme} imgUri={carrot} />
       </div>,
-      <div className="column">
-        <FoodItem name="Apple" imgUri={apple} />
+      <div className="column" key="Apple">
+        <FoodItem name="Apple" theme={this.props.theme} imgUri={apple} />
       </div>,
-      <div className="column">
-        <FoodItem name="Bacon" imgUri={bacon} />
+      <div className="column" key="Bacon">
+        <FoodItem name="Bacon" theme={this.props.theme} imgUri={bacon} />
       </div>,
-      <div className="column">
-        <FoodItem name="Banana" imgUri={banana} />
+      <div className="column" key="Banana">
+        <FoodItem name="Banana" theme={this.props.theme} imgUri={banana} />
       </div>
     ]
   }
@@ -110,8 +115,8 @@ class Header extends Component {
       <section className="hero">
         <div className="hero-body welcome-section">
           <div className="container">
-            <h1 className="title welcome-title">Hello #NAME#</h1>
-            <h2 className="subtitle welcome-message">Welcome back to foodmeup! Here are your most recently eaten foods...</h2>
+            <h1 className="title welcome-title">Hello {this.props.userName}</h1>
+            <h2 className="subtitle welcome-message">Welcome back to Foodmeup! Here are your most recently eaten foods...</h2>
           </div>
         </div>
       </section>
@@ -128,7 +133,7 @@ class Header extends Component {
 class HomePage extends Component {
   render () {
     return [
-      <section className="section">
+      <section className="section" key="foods">
         <div className="container">
           <div className="columns">
             <FeaturedFoods />
@@ -138,13 +143,22 @@ class HomePage extends Component {
           </div>
         </div>
       </section>,
-      <section className="section">
+      <section className="section alt-background" key="foods-dark">
         <div className="container">
           <div className="columns">
             <div className="column is-half">
               <div className="columns">
-                <FeaturedFoods />
+                <FeaturedFoods theme="dark" />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>,
+      <section className="section" key="nutrient-table">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-half">
+              <NutrientTable />
             </div>
           </div>
         </div>
@@ -160,11 +174,8 @@ class ShoppingList extends Component {
     this.foodToBuy = {
       fruitVeg: ['Bread', 'Rice', 'Turkey', 'Coffee', 'Pepper'],
       meat: ['hot-dog', 'hamburger', 'kebab']
-    }
-    this.foodOwned = {
-      fruitVeg: ['Bread', 'Rice', 'Turkey', 'Coffee', 'Pepper'],
-      meat: ['hot-dog', 'hamburger', 'kebab']
-    }
+    };
+    this.foodOwned = ['Bread', 'Rice', 'Turkey', 'Coffee', 'Pepper', 'hot-dog', 'hamburger', 'kebab']
   };
 
   // Lifecycle hooks
@@ -183,58 +194,38 @@ class ShoppingList extends Component {
           <div className="shopping-list__content is-clearfix">
             <p>We have generated a shopping list for you to make your recipes. Remember to delete the items that you don't need.</p>
 
-            <h6>Fruits & Vegetables</h6>
-            <div className="row">
+            <h6 className="shopping-list__title title is-6">Fruits & Vegetables</h6>
+            <ul className="shopping-list__list">
               {this.foodToBuy.fruitVeg.map(food => {
                 return (
-                  <div className="col-jm-2" key={food}>
-                    <ul className="is-clearfix">
-                      <li className={'shopping-list__item food-icon--' + food.toLowerCase()}>{food}
-                        <span className="shopping-list__item-weight">10mg</span>
-                      </li>
-                    </ul>
-                  </div>
+                  <li className={'shopping-list__item food-icon--' + food.toLowerCase()} key={food}>{food}
+                    <span className="shopping-list__item-weight">10mg</span>
+                  </li>
                 )
               })}
-            </div>
+            </ul>
 
-            <h6>Meat</h6>
-            <div className="row">
+            <h6 className="shopping-list__title title is-6">Meat</h6>
+            <ul className="shopping-list__list">
               {this.foodToBuy.meat.map(food => {
                 return (
-                  <div className="col-jm-2" key={food}>
-                    <ul className="is-clearfix">
-                      <li className={'shopping-list__item food-icon--' + food.toLowerCase()}>{food}
-                        <span className="shopping-list__item-weight">10mg</span>
-                      </li>
-                    </ul>
-                  </div>
+                  <li className={'shopping-list__item food-icon--' + food.toLowerCase()} key={food}>{food}
+                    <span className="shopping-list__item-weight">10mg</span>
+                  </li>
                 )
               })}
-            </div>
+            </ul>
 
-            <h6>Already got these</h6>
-            <div className="row">
-              <div className="col-jm-1">
-                <ul className="is-clearfix">
-                  <li className="shopping-list__item food-icon--pepper">Pepper
+            <h6 className="shopping-list__title title is-6">Already got these</h6>
+            <ul className="shopping-list__list">
+              {this.foodOwned.map(food => {
+                return (
+                  <li className={'shopping-list__item food-icon--' + food.toLowerCase()} key={food}>{food}
                     <span className="shopping-list__item-weight">10mg</span>
                   </li>
-                  <li className="shopping-list__item food-icon--coffee">Coffee
-                    <span className="shopping-list__item-weight">10mg</span>
-                  </li>
-                  <li className="shopping-list__item food-icon--rice">Rice
-                    <span className="shopping-list__item-weight">10mg</span>
-                  </li>
-                  <li className="shopping-list__item food-icon--turkey">Turkey
-                    <span className="shopping-list__item-weight">10mg</span>
-                  </li>
-                  <li className="shopping-list__item food-icon--bread">Bread
-                    <span className="shopping-list__item-weight">10mg</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                )
+              })}
+            </ul>
 
           </div>
         </div>
