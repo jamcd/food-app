@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class FoodItem extends Component {
+  constructor (props) {
+    super(props)
+    this.foodThemeName = this.props.theme ? 'food-item--' + this.props.theme + ' ' : ''
+  }
   render () {
     return (
-      <div className={'food-item' + this.props.theme ? ' food-item--' + this.props.theme : ''} draggable="true">
+      <div className={'food-item ' + this.foodThemeName + 'food-item--' + this.props.foodItem.category } draggable="true">
         <div className="food-item__heading">
           <h6 className="title is-6">{this.props.foodItem.name}</h6>
         </div>

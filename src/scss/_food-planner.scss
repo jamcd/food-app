@@ -1,0 +1,45 @@
+// =======================================
+// FOOD PLANNER
+// =======================================
+
+.food-planner-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.food-planner {
+  width: 100%;
+  box-sizing: border-box;
+
+  &__title {
+    text-align: center;
+  }
+  &__day {
+    border-left: 1px dashed #E8E8E8;
+    padding: 60px 20px;
+
+    &:first-of-type {
+      border-left: 0;
+    }
+    &--weekend {
+      background: #E4EFF7;
+    }
+  }
+  .weekday {
+    text-align: center;
+    padding: 0 0 20px;
+  }
+  .food-item {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &__heading {
+      padding: 10px 20px 8px;
+
+      h6 {
+        font-size: 16px;
+      }
+    }
+  }
+}

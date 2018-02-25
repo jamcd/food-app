@@ -1,0 +1,66 @@
+// =======================================
+// FOOD ITEM
+// =======================================
+
+.food-item {
+  cursor: pointer;
+  transition: all ease-in-out 0.07s;
+
+  &:hover {
+    top: -1px;
+    transform: rotate(-2deg);
+    transform-origin: center;
+
+    .food-item__content {
+      box-shadow: 0.5px 1.5px 6px -4px #565656;
+    }
+  }
+  &__heading {
+    background: #c1e0f5;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+    padding: 14px 15px 13px;
+  }
+  &__image {
+    display: block;
+    margin: 0 auto;
+  }
+  &__content {
+    padding: 20px 10px;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    background: #F9FAFB;
+    box-shadow: 0 1px 6px -4px #565656;
+    transition: all ease-in-out 0.07s;
+  }
+  // Normal theme
+  &--meat .food-item__heading {
+    background: $light-pink;
+    .title { color: $dark-pink; }
+  }
+  &--fruit-veg .food-item__heading {
+    background: $light-green;
+    .title { color: $dark-green; }
+  }
+  &--other .food-item__heading {
+    background: $light-blue;
+    .title { color: $dark-blue; }
+  }
+  // Dark theme
+  &--dark {
+    .title.title { // Higher specificity needed
+      color: white;
+    }
+    &.food-item--meat .food-item__heading {
+      background: $pink;
+    }
+    &.food-item--other .food-item__heading {
+      background: $blue;
+    }
+    &.food-item--fruit-veg .food-item__heading {
+      background: $green;
+    }
+  }
+}

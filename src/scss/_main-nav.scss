@@ -1,0 +1,51 @@
+// =======================================
+// MAIN NAV
+// =======================================
+
+.main-nav {
+
+  .navbar-item:hover &__submenu {
+    display: block;
+    opacity: 1;
+  }
+  &__submenu {
+    display: none;
+    transition: opacity ease-in-out 0.15s;
+    opacity: 0;
+    position: absolute;
+    top: 76px;
+    right: 0;
+    width: 550px;
+    z-index: 10;
+    background: rgba(88, 147, 193, 0.9);
+    padding: 26px 26px;
+    border-radius: 5px 0 0 5px;
+
+    .food-item {
+
+      &__heading {
+        padding: 8px 10px 6px;
+
+        h6 {
+          font-size: 16px;
+        }
+      }
+      &__content {
+        padding: 13px;
+      }
+      &__image {
+        width: 40px;
+        height: 40px;
+        max-height: unset;
+      }
+    }
+  }
+  .navbar-brand {
+    font-size: 40px;
+    font-weight: 900;
+
+    .navbar-item:hover {
+      background: none;
+    }
+  }
+}

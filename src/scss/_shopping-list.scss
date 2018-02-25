@@ -1,0 +1,70 @@
+// =======================================
+// SHOPPING LIST
+// =======================================
+
+.shopping-list {
+  position: absolute;
+  overflow: hidden;
+  background: #F9FAFB;
+  border: 1px solid #ECECEC;
+  border-radius: 3px;
+  z-index: 9;
+  box-shadow: 0 7px 22px -14px #7D7D7D;
+
+  &__heading {
+    background: #FDA49D;
+    padding: 14px 30px 13px;
+
+    h6 {
+      color: white;
+    }
+  }
+  & &__title { // Higher specificity required
+    margin-bottom: 15px;
+  }
+  &__list {
+    column-count: 2;
+    margin-bottom: 20px;
+  }
+  &__content {
+    padding: 30px;
+
+    p {
+      margin: 0 0 20px;
+    }
+  }
+  &__container {
+    position: relative;
+    float: right;
+    width: 90%;
+  }
+  &__item {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 6px;
+    border-left: 2px solid #ECECEC;
+    padding: 0 22px;
+
+    &.meat { border-color: $light-pink; }
+    &.fruit-veg { border-color: $light-green; }
+    &.other { border-color: $light-blue; }
+
+    &,
+    &[class*="food-icon"]:before {
+      float: left;
+      line-height: 24px;
+    }
+    &[class*="food-icon"]:before {
+      margin-right: 12px;
+    }
+  }
+  &__item-weight {
+    float: right;
+    color: #8EC2EA;
+    font-size: 15px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}

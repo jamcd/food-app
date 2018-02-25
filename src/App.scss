@@ -1,18 +1,25 @@
+// initial Bulma styles
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
+
+// Our google font
 @import url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900');
+
 // Custom variables
-$food-blue: #c1e0f5;
+$lighter-blue: #EEF6FB;
+$light-pink: #FDA49D;
+$light-blue: #c1e0f5;
+$light-green: #b8f5d2;
+$pink: #de665d;
+$blue: #8EC2EA;
+$green: #81E4AB;
+$dark-pink: #a73128;
 $dark-blue: #369;
+$dark-green: #358A59;
+
 // Bulma overrides
-$sky-blue: #c1e0f5;
-$light-blue: #EEF6FB;
-$pink: #FDA49D;
-$dark-green: #81E4AB;
-$dark-sky-blue: #8EC2EA;
-//$dark-pink: ; // TODO JM
 $light: #F9FAFB;
-$primary: $sky-blue;
+$primary: $blue;
 $family-sans-serif: 'Catamaran', sans-serif;
 $family-primary: $family-sans-serif;
 $text: #888;
@@ -21,10 +28,23 @@ $title-size: $size-1;
 $size-6: 1.12rem;
 $navbar-item-color: $light;
 $navbar-item-hover-color: $dark-blue;
-$navbar-item-active-color: $sky-blue;
+$navbar-item-active-color: $blue;
+
 // Import remaining Bulma styles
 @import "../node_modules/bulma/bulma";
 
+// Import Sass files
+@import "./scss/main-nav";
+@import "./scss/food-item";
+@import "./scss/food-icons";
+@import "./scss/food-planner";
+@import "./scss/nutrient-table";
+@import "./scss/shopping-list";
+
+
+.App {
+  padding-bottom: 120px;
+}
 
 .main-nav {
   background: $dark-blue;
@@ -38,14 +58,7 @@ $navbar-item-active-color: $sky-blue;
   }
 }
 
-.navbar-brand {
-  font-size: 40px;
-  font-weight: 900;
 
-  .navbar-item:hover {
-    background: none;
-  }
-}
 .welcome-section {
   padding: 0;
 
@@ -59,99 +72,11 @@ $navbar-item-active-color: $sky-blue;
 }
 
 .alt-background {
-  background: $light-blue;
-}
-
-.food-item {
-  &--dark &__heading {
-    background: $dark-sky-blue;
-
-    .title {
-      color: white;
-    }
-  }
-}
-
-.nutrient-table {
-  width: 100%;
-  margin-top: 45px;
-  text-align: center;
-  border-spacing: 0;
-  border-radius: 7px;
-  box-shadow: -2px 7px 25px -11px #E0E0E0;
-  border-collapse: separate;
-  table-layout: fixed;
-
-  tbody {
-    tr:last-of-type td:first-of-type {
-      border-radius: 0 0 0 5px;
-    }
-    tr:last-of-type td:last-of-type {
-      border-radius: 0 0 5px 0;
-    }
-    tr td:first-of-type {
-      background: #F7F7F7;
-    }
-  }
-  th {
-    width: 134px;
-    padding: 9px 2.5px 8px;
-    text-align: center;
-    vertical-align: middle;
-    background: $dark-green;
-    color: white;
-
-    &:first-of-type {
-      width: auto;
-      border-radius: 5px 0 0 0;
-
-      td {
-        padding-top: 20px;
-      }
-    }
-    &:last-of-type {
-      border-radius: 0 5px 0 0;
-    }
-    span {
-      width: 130px;
-    }
-  }
-  td {
-    padding: 10px;
-    text-align: center;
-    border-right: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
-  }
+  background: $lighter-blue;
 }
 
 
 
-.nutrient-table td {
-
-}
-
-
-
-
-// Food icons
-// =======================================
-
-[class*="food-icon"]:before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 7px;
-  background-size: cover;
-}
-
-$foods: banana, bread, jelly, apple, bacon, cupcake, butter, carrot, turkey, coffee, pepper, rice, hot-dog, hamburguer, kebab;
-
-@each $food in $foods {
-  .food-icon--#{$food}:before {
-    background: url('img/food/#{$food}.svg');
-  }
-}
 
 
 
@@ -162,12 +87,10 @@ $foods: banana, bread, jelly, apple, bacon, cupcake, butter, carrot, turkey, cof
 /* Master Styles */
 h1 {
   color: #369;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
 h2, h3 {
   color: #444;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
 body {
@@ -310,50 +233,17 @@ body, html {
   min-height: 100%;
 }
 
-[class*="col-jm"] {
-  position: relative;
-  float: left;
-  box-sizing: border-box;
-  padding: 0 10px;
-}
-.col-jm-2 {
-  width: 50%;
-}
-.col-jm-3 {
-  width: 33.33%;
-}
-.col-jm-4 {
-  width: 25%;
-}
-.col-jm-5 {
-  width: 20%;
-}
-.col-jm-6 {
-  width: 16.66%;
-}
-.col-jm-7 {
-  width: 14.28%;
-}
-.col-jm-8 {
-  width: 12.5%;
-}
-.col-jm-9 {
-  width: 11.11%;
-}
-.col-jm-10 {
-  width: 10%;
-}
-.site-header {
-  background: whitesmoke;
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png");
-  padding: 30px 50px;
-  padding: 0 50px;
-  border-bottom: 1px solid #ECECF1;
-}
-.site-main {
-  width: 100%;
-  padding-bottom: 120px;
-}
+//.site-header {
+//  background: whitesmoke;
+//  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry2.png");
+//  padding: 30px 50px;
+//  padding: 0 50px;
+//  border-bottom: 1px solid #ECECF1;
+//}
+//.site-main {
+//  width: 100%;
+//  padding-bottom: 120px;
+//}
 .site-footer {
   background: #EEE;
   color: #5C6063;
@@ -427,38 +317,8 @@ h6 {
   /*text-shadow: 0px 0px 6px #F9FAFB, 0px 0px 10px #F9FAFB, 0px 0px 20px #F9FAFB, 0px 0px 30px #F9FAFB;*/
   margin-left: 22px;
 }
-.site-nav__item:hover .site-nav__submenu,
-.site-nav__submenu:hover {
-  opacity: 1;
-}
-.site-nav__submenu {
-  transition: opacity ease-in-out 0.15s;
-  opacity: 0;
-  position: absolute;
-  top: 76px;
-  right: 0;
-  width: 550px;
-  z-index: 10;
-  background: rgba(88, 147, 193, 0.9);
-  padding: 26px 26px;
-  border-radius: 5px 0 0 5px;
-}
-.site-nav__submenu .food-item {
-  width: 25%;
-}
-.site-nav__submenu .food-item__heading {
-  padding: 5px;
-}
-.site-nav__submenu .food-item__heading h6 {
-  font-size: 16px;
-}
-.site-nav__submenu .food-item__content {
-  padding: 15px;
-}
-.site-nav__submenu .food-item__image {
-  width: 40px;
-  height: 40px;
-}
+
+
 .title-span--food {
   color:#8EC2EA;
 }
@@ -482,68 +342,7 @@ $welcome-message-margin-left: 225px;
   font-size: 18px;
   font-weight: 400;
 }
-.shopping-list {
-  position: absolute;
-  overflow: hidden;
-  background: #F9FAFB;
-  border: 1px solid #ECECEC;
-  border-radius: 3px;
-  z-index: 9;
-  box-shadow: 0 7px 22px -14px #7D7D7D;
 
-  &__heading {
-    background: #FDA49D;
-    padding: 9px 30px 8px;
-
-    h6 {
-      color: white;
-    }
-  }
-  & &__title { // Higher specificity required
-    margin-bottom: 15px;
-  }
-  &__list {
-    column-count: 2;
-    margin-bottom: 20px;
-  }
-  &__content {
-    padding: 30px;
-
-    p {
-      margin: 0 0 20px;
-    }
-  }
-  &__container {
-    position: relative;
-    float: right;
-    width: 90%;
-  }
-  &__item {
-    box-sizing: border-box;
-    width: 100%;
-    margin-bottom: 4px;
-    border-left: 1px solid #ECECEC;
-    padding: 0 22px;
-
-    &,
-    &[class*="food-icon"]:before {
-      float: left;
-      line-height: 24px;
-    }
-    &[class*="food-icon"]:before {
-      margin-right: 12px;
-    }
-  }
-  &__item-weight {
-    float: right;
-    color: #8EC2EA;
-    font-size: 15px;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-}
 
 
 .dark-theme {
@@ -554,18 +353,6 @@ $welcome-message-margin-left: 225px;
 }
 
 
-.food-item {
-  cursor: pointer;
-  transition: all ease-in-out 0.07s;
-}
-.food-item:hover {
-  top: -1px;
-  transform: rotate(-2deg);
-  transform-origin: center;
-}
-.food-item:hover .food-item__content {
-  box-shadow: 0.5px 1.5px 6px -4px #565656;
-}
 .dark-theme .food-item:hover .food-item__content {
   box-shadow: 0.3px 1.5px 6px -3.5px #7D7D7D;
 }
@@ -581,100 +368,9 @@ $welcome-message-margin-left: 225px;
 .dark-theme .food-item__heading h6 {
   color: white;
 }
-.food-item__heading {
-  background: #c1e0f5;
-  color: white;
-  font-size: 18px;
-  text-align: center;
-  border-radius: 3px 3px 0 0;
-  padding: 9px 20px 8px;
-}
 .dark-theme .food-item__heading {
   background: #8EC2EA;
 }
-.food-item__content {
-  padding: 20px 10px;
-  border-radius: 0 0 5px 5px;
-  text-align: center;
-  background: #F9FAFB;
-  box-shadow: 0 1px 6px -4px #565656;
-  transition: all ease-in-out 0.07s;
-}
-.food-item__image {
-  display: inline-block;
-}
 
 
-
-
-
-.half-col {
-  float: left;
-  width: 50%;
-}
-
-.site-section--food-planner {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.food-planner {
-  width: 100%;
-  /*background: white;
-  padding: 45px 50px 50px;*/
-  box-sizing: border-box;
-}
-.food-planner [class*="col-jm"] {
-  border-left: 1px dashed #E8E8E8;
-  padding: 60px 20px;
-}
-.food-planner [class*="col-jm"]:first-of-type {
-  border-left: 0;
-}
-.food-planner .food-item {
-  margin-bottom: 20px;
-}
-.food-planner .food-item:last-of-type {
-  margin-bottom: 0;
-}
-.food-planner .food-item__heading {
-  padding: 5px 20px 3px;
-}
-.food-planner .food-item__heading h6 {
-  font-size: 16px;
-}
-
-
-
-span[class*="food-icon"] {
-  background: #F9FAFB;
-  padding: 17px 25px 10px;
-  width: 80px;
-  box-shadow: 0 -1.5px 1px -1px #E6E6E6;
-  float: left;
-  top: 8px;
-  margin-top: -60px;
-  border-bottom: 1px solid whitesmoke;
-  color: #358A59;
-  position: relative;
-  border-radius: 5px 5px 0 0;
-}
-
-th [class*="food-icon"]:before {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 5px;
-  text-align: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-
-.weekday {
-  text-align: center;
-  padding: 0 0 20px;
-}
-.weekend {
-  background: #E4EFF7;
-}
 
