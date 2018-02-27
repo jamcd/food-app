@@ -3,7 +3,6 @@ An app for analysing the food you eat and your diet
 
 <b>Things to do:</b>
 <ol>
-    <li>React Router</li>
     <li>Redux</li>
     <li>Implement a drag & drop system for food items</li>
     <li>Add checkboxes to shopping list</li>
@@ -20,5 +19,6 @@ An app for analysing the food you eat and your diet
     <li>Portion sizes</li>
     <li>Nutrient analyser</li>
     <li>Shopping list page</li>
+    <li>Improve React Router use</li>
     <li>Responsive</li>
 </ol>
