@@ -4,6 +4,7 @@ import FeaturedFoods from "../components/FeaturedFoods";
 import ShoppingList from '../components/ShoppingList'
 import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'
+import State from '../FakeState'
 
 class HomePage extends Component {
   render () {
@@ -13,7 +14,7 @@ class HomePage extends Component {
           <div className="columns">
             <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
             <div className="column is-half">
-              <ShoppingList shoppingList={this.props.shoppingList}/>
+              <ShoppingList shoppingList={State.shoppingList}/>
             </div>
           </div>
         </div>

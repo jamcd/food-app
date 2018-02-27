@@ -2,64 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 import FoodItem from './components/FoodItem'
 import FoodItems from './components/FoodItems'
+import State from './FakeState'
 import HomePage from './containers/HomePage'
+import FoodPage from './containers/FoodPage'
+import PlannerPage from './containers/PlannerPage'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      userName: 'Jamie',
-
-      // TODO JM - Introduce Redux
-
-      shoppingList: {
-        needed: [
-          FoodItems.ham,
-          FoodItems.salad,
-          FoodItems.sorbet,
-          FoodItems.fish,
-          FoodItems.shrimp,
-          FoodItems.orange,
-          FoodItems.aubergine,
-          FoodItems.raspberry,
-          FoodItems.fries,
-          FoodItems.eggs,
-          FoodItems.flour,
-          FoodItems.apple,
-          FoodItems.turkey,
-          FoodItems.salmon,
-          FoodItems.kebab,
-          FoodItems.noodles,
-          FoodItems.pasta
-        ],
-        owned: [
-          FoodItems.garlic,
-          FoodItems.gingerbread,
-          FoodItems.milk,
-          FoodItems.mushrooms,
-          FoodItems.octopus,
-          FoodItems.honey,
-          FoodItems.hotDog,
-          FoodItems.rice,
-          FoodItems.watermelon
-        ]
-      }
-    };
-  }
   render() {
     return (
-      <div className="App">
-        <NavBar className="main-nav"/>
-        <Header userName={this.state.userName}/>
-        <HomePage shoppingList={this.state.shoppingList} />
-        <footer className="site-footer">
-          <div className="container">
-            <p>Copyright 2016. All rights reserved
-              <span className="site-footer__credit">Website created by Jamie McDonald</span>
-            </p>
-          </div>
-        </footer>
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar className="main-nav"/>
+          <Header userName={State.userName}/>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/food" component={FoodPage}/>
+          <Route path="/planner" component={PlannerPage}/>
+          <footer className="site-footer">
+            <div className="container">
+              <p>Copyright 2016. All rights reserved
+                <span className="site-footer__credit">Website created by Jamie McDonald</span>
+              </p>
+            </div>
+          </footer>
+        </div>
+      </Router>
     );
   }
 }
@@ -75,9 +42,9 @@ class NavBar extends Component {
             </a>
           </div>
           <div className="navbar-menu navbar-end">
-            <a className="navbar-item">Home</a>
-            <a className="navbar-item">Food</a>
-            <a className="navbar-item">Planner
+            <Link to="/" className="navbar-item">Home</Link>
+            <Link to="/food" className="navbar-item">Food</Link>
+            <Link to="/planner" className="navbar-item">Planner
               <div className="main-nav__submenu">
                 <div className="columns">
                   <div className="column">
@@ -94,7 +61,7 @@ class NavBar extends Component {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
