@@ -59,17 +59,24 @@
 
 .shopping-list-item {
   box-sizing: border-box;
-  width: 50%;
+  width: 25%;
   margin-bottom: 15px;
+  padding-right: 15px;
   border-left: 2px solid #ECECEC;
-  padding: 0 15px 0 10px;
+
+  &__media {
+    background: white;
+    padding: 12px 10px 9px 15px;
+    box-shadow: $item-box-shadow;
+  }
 
   &.meat { border-color: $light-pink; }
   &.fruit-veg { border-color: $light-green; }
   &.other { border-color: $light-blue; }
 
   &__title {
-      line-height: 1.2;
+    margin-bottom: -1px;
+    line-height: 1.2;
   }
   &__image {
     height: 38px;
@@ -84,4 +91,9 @@
   &[class*="food-icon"]:before {
     margin-right: 12px;
   }
+}
+
+// TODO JM - Refactor this to be less brittle
+.is-half > .shopping-list__container .shopping-list-item {
+  width: 50%;
 }

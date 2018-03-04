@@ -32,7 +32,7 @@
     border-radius: 0 0 5px 5px;
     text-align: center;
     background: #F9FAFB;
-    box-shadow: 0 1px 6px -4px #565656;
+    box-shadow: $item-box-shadow;
     transition: all ease-in-out 0.07s;
   }
   // Normal theme
