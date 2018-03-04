@@ -229,9 +229,9 @@ import watermelon from '../img/food/watermelon.svg'
 import whisk from '../img/food/whisk.svg'
 import wrap from '../img/food/wrap.svg'
 
-const fruitVeg = 'fruit-veg';
-const meat = 'meat';
-const other = 'other';
+const fruitVeg = 'fruit-veg'
+const meat = 'meat'
+const other = 'other'
 
 export default {
   apple: {

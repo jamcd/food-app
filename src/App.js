@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import FoodItem from './components/FoodItem'
 import FoodItems from './components/FoodItems'
 import State from './FakeState'
 import HomePage from './containers/HomePage'
 import FoodPage from './containers/FoodPage'
 import PlannerPage from './containers/PlannerPage'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <Router>
         <div className="App">
@@ -27,12 +27,12 @@ class App extends Component {
           </footer>
         </div>
       </Router>
-    );
+    )
   }
 }
 
 class NavBar extends Component {
-  render() {
+  render () {
     return (
       <section className={'navbar ' + this.props.className} role="navigation">
         <div className="container">
@@ -80,8 +80,8 @@ class Header extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default App;
+export default App

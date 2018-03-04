@@ -1,10 +1,16 @@
 # food-app
 An app for analysing the food you eat and your diet
 
-<b>Things to do:</b>
+<h4>Decisions to make</h4>
+<p>
+    Should all the foods be stored in the same array?
+</p> 
+
+<h4>Things to do:</h4>
 <ol>
     <li>Redux</li>
-    <li>Implement a drag & drop system for food items</li>
+    <li>Persist state in localStorage</li>
+    <li>Implement a drag and drop system for food items</li>
     <li>Add checkboxes to shopping list</li>
     <li>Add a food item search</li>
     <li>Individual food item summaries (tooltip? page?)</li>

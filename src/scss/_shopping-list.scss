@@ -38,6 +38,11 @@
     float: right;
     width: 90%;
   }
+  &__remove {
+    float: right;
+    margin-left: 5px;
+    cursor: pointer;
+  }
   &__item {
     box-sizing: border-box;
     width: 100%;

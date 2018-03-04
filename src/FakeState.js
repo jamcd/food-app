@@ -1,4 +1,4 @@
-import FoodItems from "./components/FoodItems";
+import FoodItems from "./components/FoodItems"
 
 // TODO JM - Replace with Redux
 

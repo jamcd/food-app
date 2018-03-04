@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import FoodItems from "../components/FoodItems";
-import FeaturedFoods from "../components/FeaturedFoods";
+import React, { Component } from "react"
+import FoodItems from "../components/FoodItems"
+import FeaturedFoods from "../components/FeaturedFoods"
 import ShoppingList from '../components/ShoppingList'
 import State from '../FakeState'
 
@@ -23,8 +23,8 @@ class FoodPage extends Component {
           </div>
         </div>
       </section>
-    ];
+    ]
   }
 }
 
-export default FoodPage;
+export default FoodPage

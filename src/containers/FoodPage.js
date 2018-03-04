@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import FoodItems from "../components/FoodItems";
-import FeaturedFoods from "../components/FeaturedFoods";
+import React, { Component } from "react"
+import FoodItems from "../components/FoodItems"
+import FeaturedFoods from "../components/FeaturedFoods"
 
 class FoodPage extends Component {
   render () {
@@ -10,10 +10,19 @@ class FoodPage extends Component {
           <div className="columns">
             <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
           </div>
+          <div className="columns">
+            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
+          </div>
+          <div className="columns">
+            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
+          </div>
+          <div className="columns">
+            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
+          </div>
         </div>
       </section>
-    ];
+    ]
   }
 }
 
-export default FoodPage;
+export default FoodPage
