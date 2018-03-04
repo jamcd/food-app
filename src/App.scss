@@ -1,6 +1,8 @@
 // initial Bulma styles
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
+// Font Awesome
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
 
 // Our google font
 @import url('https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900');

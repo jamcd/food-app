@@ -23,7 +23,7 @@
     margin-bottom: 15px;
   }
   &__list {
-    column-count: 2;
+    @include clearfix;
     margin-bottom: 20px;
   }
   &__content {
@@ -38,38 +38,50 @@
     float: right;
     width: 90%;
   }
-  &__remove {
+  &__action {
     float: right;
-    margin-left: 5px;
     cursor: pointer;
-  }
-  &__item {
-    box-sizing: border-box;
-    width: 100%;
-    margin-bottom: 6px;
-    border-left: 2px solid #ECECEC;
-    padding: 0 22px;
 
-    &.meat { border-color: $light-pink; }
-    &.fruit-veg { border-color: $light-green; }
-    &.other { border-color: $light-blue; }
-
-    &,
-    &[class*="food-icon"]:before {
-      float: left;
-      line-height: 24px;
-    }
-    &[class*="food-icon"]:before {
-      margin-right: 12px;
+    .remove {
+      margin-left: 5px;
     }
   }
   &__item-weight {
-    float: right;
+    float: left;
     color: #8EC2EA;
     font-size: 15px;
   }
   ul {
     list-style: none;
     padding-left: 0;
+  }
+}
+
+.shopping-list-item {
+  box-sizing: border-box;
+  width: 50%;
+  margin-bottom: 15px;
+  border-left: 2px solid #ECECEC;
+  padding: 0 15px 0 10px;
+
+  &.meat { border-color: $light-pink; }
+  &.fruit-veg { border-color: $light-green; }
+  &.other { border-color: $light-blue; }
+
+  &__title {
+      line-height: 1.2;
+  }
+  &__image {
+    height: 38px;
+    width: 38px;
+  }
+
+  &,
+  &[class*="food-icon"]:before {
+    float: left;
+    line-height: 24px;
+  }
+  &[class*="food-icon"]:before {
+    margin-right: 12px;
   }
 }

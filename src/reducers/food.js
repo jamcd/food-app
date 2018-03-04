@@ -1,36 +1,37 @@
 import {
   ADD_FOOD,
-  MOVE_FOOD,
   REMOVE_FOOD,
-  // TOGGLE_FOOD
+  TOGGLE_FOOD
 } from '../actions/food'
 import { combineReducers } from 'redux'
 
 function food (state = [], action) {
-  debugger
   switch (action.type) {
     case ADD_FOOD:
-      debugger
+      // Don't add the new item if it's already in the state
+      if (state.findIndex(food => food.item.name === action.item.name) !== -1) return state
+
       return [
         ...state,
         {
           item: action.item,
-          owned: action.owned,
-          quantity: action.quantity
+          owned: action.owned ? action.owned : false,
+          quantity: action.quantity ? action.quantity : '1 portion'
         }
       ]
-    case MOVE_FOOD:
-      return [
-        ...state,
-        {
-          item: action.item,
-          owned: action.owned,
-          quantity: action.quantity
+    case TOGGLE_FOOD:
+      return state.map((food) => {
+        if (food.item.name === action.name) {
+          return {
+            item: food.item,
+            owned: !food.owned,
+            quantity: food.quantity
+          }
+        } else {
+          return food
         }
-      ]
+      })
     case REMOVE_FOOD:
-      console.log('%c REMOVE FOOD RUN', 'color: #42b983')
-      debugger
       return state.filter((food) => {
         return food.item.name !== action.name
       })

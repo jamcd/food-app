@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import FoodItems from "../components/FoodItems";
-import FeaturedFoods from "../components/FeaturedFoods";
+import React from "react"
+import FoodItems from "../components/FoodItems"
+import FeaturedFoods from "../components/FeaturedFoods"
 import ShoppingList from '../components/ShoppingList'
 import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'

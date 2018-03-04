@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { addFood } from '../actions/food'
 import { connect } from 'react-redux'
+import { addFood } from '../actions/food'
 
-let FoodItem = ({ foodItem, theme }) => (
+let FoodItem = ({ foodItem, theme, onAddFoodClick }) => (
   <div className={'food-item food-item--' + foodItem.category + (theme ? 'food-item--' + theme + ' ' : '') }
-       draggable="true" onClick={() => addFood(foodItem)}>
+       draggable="true" onClick={() => onAddFoodClick(foodItem, 1, true)}>
     <div className="food-item__heading">
       <h6 className="title is-6">{foodItem.name}</h6>
     </div>
@@ -25,13 +25,20 @@ FoodItem.propTypes = {
   theme: PropTypes.string
 }
 
+const mapStateToProps = state => {
+  return {
+    food: state.food
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: foodItem => dispatch(addFood(foodItem, 1, true))
+    onAddFoodClick: foodItem => dispatch(addFood(foodItem))
   }
 }
 
 FoodItem = connect(
+  mapStateToProps,
   mapDispatchToProps
 )(FoodItem)
 
