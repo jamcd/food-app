@@ -17,6 +17,7 @@ An app for analysing the food you eat and your diet
     <li>Create a page of all food items</li>
     <li>Create a profile page for the user</li>
     <li>Login/Logout</li>
+    <li>Add sorting option for food page and shopping list</li>
     <li>Favourite food items slider</li>
     <li>Make a tile which can contain multiple food items (for meals etc)</li>
     <li>Allow more than two food items to be added to a day in the food planner</li>

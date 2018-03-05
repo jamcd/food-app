@@ -3,14 +3,19 @@
 // =======================================
 
 .shopping-list {
-  position: absolute;
   overflow: hidden;
-  background: #F9FAFB;
+  background: $light-grey;
   border: 1px solid #ECECEC;
   border-radius: 3px;
   z-index: 9;
   box-shadow: 0 7px 22px -14px #7D7D7D;
 
+
+  &--side-panel {
+    position: absolute;
+    width: 45%;
+    right: 0;
+  }
   &__heading {
     background: #FDA49D;
     padding: 14px 30px 13px;
@@ -24,6 +29,9 @@
   }
   &__list {
     @include clearfix;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 15px;
     margin-bottom: 20px;
   }
   &__content {
@@ -32,11 +40,6 @@
     p {
       margin: 0 0 20px;
     }
-  }
-  &__container {
-    position: relative;
-    float: right;
-    width: 90%;
   }
   &__action {
     float: right;
@@ -59,9 +62,6 @@
 
 .shopping-list-item {
   box-sizing: border-box;
-  width: 25%;
-  margin-bottom: 15px;
-  padding-right: 15px;
   border-left: 2px solid #ECECEC;
 
   &__media {
@@ -70,12 +70,18 @@
     box-shadow: $item-box-shadow;
   }
 
-  &.meat { border-color: $light-pink; }
-  &.fruit-veg { border-color: $light-green; }
-  &.other { border-color: $light-blue; }
+  &.meat {
+    border-color: $light-pink;
+  }
+  &.fruit-veg {
+    border-color: $light-green;
+  }
+  &.other {
+    border-color: $light-blue;
+  }
 
   &__title {
-    margin-bottom: -1px;
+    margin: 0 6px -1px 0;
     line-height: 1.2;
   }
   &__image {
@@ -91,9 +97,4 @@
   &[class*="food-icon"]:before {
     margin-right: 12px;
   }
-}
-
-// TODO JM - Refactor this to be less brittle
-.is-half > .shopping-list__container .shopping-list-item {
-  width: 50%;
 }

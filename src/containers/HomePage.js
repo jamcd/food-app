@@ -12,7 +12,7 @@ import NutrientTable from '../components/NutrientTable'
       <div className="columns">
         <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
         <div className="column is-half">
-          <ShoppingList shoppingList={food} />
+          <ShoppingList shoppingList={food} isSidePanel={true} />
         </div>
       </div>
     </div>
