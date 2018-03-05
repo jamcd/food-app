@@ -1,23 +1,15 @@
 import React, { Component } from "react"
 import FoodItems from "../components/FoodItems"
 import FeaturedFoods from "../components/FeaturedFoods"
+import FoodItem from '../components/FoodItem'
 
 class FoodPage extends Component {
   render () {
     return [
       <section className="section" key="foods">
         <div className="container">
-          <div className="columns">
-            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
-          </div>
-          <div className="columns">
-            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
-          </div>
-          <div className="columns">
-            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
-          </div>
-          <div className="columns">
-            <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
+          <div className="food-index">
+            {Object.keys(FoodItems).map(item => <FoodItem theme={this.props.theme} foodItem={FoodItems[item]} key={item} />)}
           </div>
         </div>
       </section>

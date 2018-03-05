@@ -8,14 +8,13 @@ An app for analysing the food you eat and your diet
 
 <h4>Things to do:</h4>
 <ol>
-    <li>Redux</li>
     <li>Persist state in localStorage</li>
     <li>Implement a drag and drop system for food items</li>
-    <li>Add checkboxes to shopping list</li>
+    <li>Simple Node.js back-end</li>
     <li>Add a food item search</li>
     <li>Individual food item summaries (tooltip? page?)</li>
-    <li>Create a page of all food items</li>
     <li>Create a profile page for the user</li>
+    <li>Add more information to Redux</li>
     <li>Login/Logout</li>
     <li>Add sorting option for food page and shopping list</li>
     <li>Favourite food items slider</li>
