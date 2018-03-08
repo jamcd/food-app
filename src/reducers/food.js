@@ -3,7 +3,6 @@ import {
   REMOVE_FOOD,
   TOGGLE_FOOD
 } from '../actions/food'
-import { combineReducers } from 'redux'
 
 function food (state = [], action) {
   switch (action.type) {
@@ -40,8 +39,4 @@ function food (state = [], action) {
   }
 }
 
-const foodApp = combineReducers({
-  food
-})
-
-export default foodApp
+export default food

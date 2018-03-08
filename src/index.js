@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import foodApp from './reducers/food'
+import reducer from './reducers/index'
 import App from './App'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker'
 import FoodItems from './components/FoodItems'
 import { addFood } from './actions/food'
 
-let store = createStore(foodApp)
+let store = createStore(reducer)
 
 ReactDOM.render(
   <Provider store={store}>

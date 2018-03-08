@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import FoodItem from './FoodItem'
 
 class FeaturedFoods extends Component {
@@ -13,4 +13,4 @@ class FeaturedFoods extends Component {
   }
 }
 
-export default FeaturedFoods;
+export default FeaturedFoods
