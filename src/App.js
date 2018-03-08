@@ -2,19 +2,22 @@ import React, { Component } from 'react'
 import './App.css'
 import FoodItem from './components/FoodItem'
 import FoodItems from './components/FoodItems'
-import State from './FakeState'
 import HomePage from './containers/HomePage'
 import FoodPage from './containers/FoodPage'
 import PlannerPage from './containers/PlannerPage'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { userName: 'Jamie' }
+  }
   render () {
     return (
       <Router>
         <div className="App">
           <NavBar className="main-nav"/>
-          <Header userName={State.userName}/>
+          <Header userName={this.state.userName}/>
           <Route exact path="/" component={HomePage}/>
           <Route path="/food" component={FoodPage}/>
           <Route path="/planner" component={PlannerPage}/>

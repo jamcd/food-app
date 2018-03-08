@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import FoodItems from "../components/FoodItems"
-import FeaturedFoods from "../components/FeaturedFoods"
 import FoodItem from '../components/FoodItem'
 
 class FoodPage extends Component {

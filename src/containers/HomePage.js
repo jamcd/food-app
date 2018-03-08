@@ -4,7 +4,6 @@ import FeaturedFoods from "../components/FeaturedFoods"
 import ShoppingList from '../components/ShoppingList'
 import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'
-// import State from '../FakeState'
 
   const HomePage = ({ food }) => [
   <section className="section" key="foods">
