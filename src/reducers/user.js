@@ -7,17 +7,20 @@ import {
 function user (state = {}, action) {
   switch (action.type) {
     case SET_USER_NAME:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         name: action.name
-      })
+      }
     case SET_USER_EMAIL:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         email: action.email
-      })
+      }
     case SET_USER_AGE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         age: action.age
-      })
+      }
     default:
       return state
   }

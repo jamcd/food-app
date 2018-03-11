@@ -22,9 +22,8 @@ function food (state = [], action) {
       return state.map((food) => {
         if (food.item.name === action.name) {
           return {
-            item: food.item,
-            owned: !food.owned,
-            quantity: food.quantity
+            ...food,
+            owned: !food.owned
           }
         } else {
           return food
