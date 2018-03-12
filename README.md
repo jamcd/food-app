@@ -11,6 +11,7 @@ An app for analysing the food you eat and your diet
     <li>Persist state in localStorage</li>
     <li>Implement a drag and drop system for food items</li>
     <li>Simple Node.js back-end</li>
+    <li>Use Async Await with promises</li>
     <li>Add a food item search</li>
     <li>Individual food item summaries (tooltip? page?)</li>
     <li>Create a profile page for the user</li>
