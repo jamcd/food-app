@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import FoodItem from './FoodItem'
+import FoodItemContainer from '../containers/FoodItemContainer'
 
 class FeaturedFoods extends Component {
   render() {
     return this.props.foodItems.map(foodItem => {
       return (
         <div className="column" key={foodItem.name}>
-          <FoodItem theme={this.props.theme} foodItem={foodItem} />
+          <FoodItemContainer theme={this.props.theme} foodItem={foodItem} />
         </div>
       )
     })

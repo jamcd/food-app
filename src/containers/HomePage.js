@@ -1,7 +1,7 @@
 import React from "react"
 import FoodItems from "../components/FoodItems"
 import FeaturedFoods from "../components/FeaturedFoods"
-import ShoppingList from '../components/ShoppingList'
+import ShoppingList from '../containers/ShoppingListContainer'
 import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'
 

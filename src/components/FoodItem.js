@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { addFood } from '../actions/food'
 
 let FoodItem = ({ foodItem, theme, onAddFoodClick }) => (
   <div className={'food-item food-item--' + foodItem.category + (theme ? 'food-item--' + theme + ' ' : '') }
@@ -24,22 +22,5 @@ FoodItem.propTypes = {
   }),
   theme: PropTypes.string
 }
-
-const mapStateToProps = state => {
-  return {
-    food: state.food
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddFoodClick: foodItem => dispatch(addFood(foodItem))
-  }
-}
-
-FoodItem = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FoodItem)
 
 export default FoodItem

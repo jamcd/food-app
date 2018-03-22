@@ -1,6 +1,4 @@
 import React from "react"
-import { connect } from 'react-redux'
-import { removeFood, toggleFood } from '../actions/food'
 import ShoppingListItem from './ShoppingListItem'
 
 let emptyMessage = 'You don\'t need any items. You\'re good to go!'
@@ -44,23 +42,5 @@ let ShoppingList = ({ food, isSidePanel, onRemoveClick, onToggleClick }) => (
     </div>
   </div>
 )
-
-const mapStateToProps = state => {
-  return {
-    food: state.food
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onRemoveClick: name => dispatch(removeFood(name)),
-    onToggleClick: name => dispatch(toggleFood(name))
-  }
-}
-
-ShoppingList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ShoppingList)
 
 export default ShoppingList

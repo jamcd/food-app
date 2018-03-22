@@ -8,6 +8,7 @@ An app for analysing the food you eat and your diet
 
 <h4>Things to do:</h4>
 <ol>
+    <li>Create a plan for the app using 'Thinking in React'</li>
     <li>Persist state in localStorage</li>
     <li>Implement a drag and drop system for food items</li>
     <li>Simple Node.js back-end</li>
