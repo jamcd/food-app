@@ -5,13 +5,13 @@ import ShoppingList from '../containers/ShoppingListContainer'
 import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'
 
-  const HomePage = ({ food }) => [
+const HomePage = () => [
   <section className="section" key="foods">
     <div className="container">
       <div className="columns">
         <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
         <div className="column is-half">
-          <ShoppingList shoppingList={food} isSidePanel={true} />
+          <ShoppingList isSidePanel={true} />
         </div>
       </div>
     </div>

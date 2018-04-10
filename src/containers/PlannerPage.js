@@ -18,7 +18,7 @@ class FoodPage extends Component {
         <div className="container">
           <div className="columns">
             <div className="column is-clearfix">
-              <ShoppingList shoppingList={State.shoppingList} />
+              <ShoppingList />
             </div>
           </div>
         </div>
