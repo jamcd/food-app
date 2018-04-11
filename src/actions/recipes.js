@@ -1,3 +1,5 @@
+import { fetchRecipesFromDB } from '../api/index'
+
 export const SELECT_RECIPE = 'SELECT_RECIPE'
 export const INVALIDATE_RECIPE = 'INVALIDATE_RECIPE'
 export const REQUEST_RECIPE = 'REQUEST_RECIPE'
@@ -30,6 +32,13 @@ export function receiveRecipe (recipe, json) {
     recipe,
     posts: json.data.children.map(child => child.data),
     receivedAt: Date.now()
+  }
+}
+
+export function fetchRecipes (recipe) {
+  return dispatch => {
+    dispatch(requestRecipe(recipe))
+    return fetchRecipesFromDB(500).then(json => dispatch(receiveRecipe(recipe, json)))
   }
 }
 
