@@ -50,4 +50,4 @@ class FoodPlanner extends Component {
   }
 }
 
-export default FoodPlanner;
+export default FoodPlanner

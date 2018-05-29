@@ -6,7 +6,7 @@ import FoodPlanner from '../components/FoodPlanner'
 import NutrientTable from '../components/NutrientTable'
 
 const HomePage = () => [
-  <section className="section" key="foods">
+  <section className="section">
     <div className="container">
       <div className="columns">
         <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />

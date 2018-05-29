@@ -7,7 +7,7 @@ import State from '../FakeState'
 class FoodPage extends Component {
   render () {
     return [
-      <section className="section" key="foods">
+      <section className="section">
         <div className="container">
           <div className="columns">
             <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
