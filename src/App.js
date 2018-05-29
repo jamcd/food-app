@@ -5,6 +5,7 @@ import FoodItems from './components/FoodItems'
 import HomePage from './containers/HomePage'
 import FoodPage from './containers/FoodPage'
 import PlannerPage from './containers/PlannerPage'
+import RecipesPage from './containers/RecipeContainer'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 class App extends Component {
@@ -17,10 +18,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar className="main-nav"/>
-          <Header userName={this.state.userName}/>
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/food" component={FoodPage}/>
-          <Route path="/planner" component={PlannerPage}/>
+          <Header userName={this.state.userName} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/food" component={FoodPage} />
+          <Route path="/planner" component={PlannerPage} />
+          <Route path="/recipes" component={RecipesPage} />
           <footer className="site-footer">
             <div className="container">
               <p>Copyright 2016. All rights reserved
@@ -47,6 +49,7 @@ class NavBar extends Component {
           <div className="navbar-menu navbar-end">
             <Link to="/" className="navbar-item">Home</Link>
             <Link to="/food" className="navbar-item">Food</Link>
+            <Link to="/recipes" className="navbar-item">Recipes</Link>
             <Link to="/planner" className="navbar-item">Planner
               <div className="main-nav__submenu">
                 <div className="columns">
