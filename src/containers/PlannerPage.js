@@ -2,14 +2,15 @@ import React, { Component } from "react"
 import FoodItems from "../components/FoodItems"
 import FeaturedFoods from "../components/FeaturedFoods"
 import ShoppingList from '../containers/ShoppingListContainer'
-import State from '../FakeState'
+// import State from '../FakeState'
 
 class FoodPage extends Component {
   render () {
     return [
-      <section className="section">
+      <section className="section" key="featured-foods">
         <div className="container">
           <div className="columns">
+
             <FeaturedFoods foodItems={[FoodItems.doughnut, FoodItems.watermelon, FoodItems.salad, FoodItems.shrimp]} />
           </div>
         </div>

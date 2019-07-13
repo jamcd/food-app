@@ -8,7 +8,7 @@ class RecipesPage extends Component {
         <div className="container">
           <div className="columns">
             <div className="column is-half">
-              <RecipeSummary food={this.props.food}/>
+              <RecipeSummary food={this.props.food} />
             </div>
           </div>
         </div>
